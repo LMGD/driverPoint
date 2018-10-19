@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.congtuo.driverPort.mapper.JsjReassignRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.congtuo.driverPort.model.JsjReassignRecord" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="order_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="driver_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="add_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="add_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="resaaign_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="reward" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="tip_manager" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="tip_driver" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="exp_1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="exp_2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="exp_3" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, order_code, driver_id, add_id, add_time, resaaign_type, reward, tip_manager, 
+    tip_driver, exp_1, exp_2, exp_3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jsj_reassign_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jsj_reassign_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.congtuo.driverPort.model.JsjReassignRecord" >
+    insert into jsj_reassign_record (id, order_code, driver_id, 
+      add_id, add_time, resaaign_type, 
+      reward, tip_manager, tip_driver, 
+      exp_1, exp_2, exp_3)
+    values (#{id,jdbcType=INTEGER}, #{orderCode,jdbcType=VARCHAR}, #{driverId,jdbcType=INTEGER}, 
+      #{addId,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP}, #{resaaignType,jdbcType=INTEGER}, 
+      #{reward,jdbcType=INTEGER}, #{tipManager,jdbcType=VARCHAR}, #{tipDriver,jdbcType=VARCHAR}, 
+      #{exp1,jdbcType=VARCHAR}, #{exp2,jdbcType=VARCHAR}, #{exp3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.congtuo.driverPort.model.JsjReassignRecord" >
+    insert into jsj_reassign_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderCode != null" >
+        order_code,
+      </if>
+      <if test="driverId != null" >
+        driver_id,
+      </if>
+      <if test="addId != null" >
+        add_id,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="resaaignType != null" >
+        resaaign_type,
+      </if>
+      <if test="reward != null" >
+        reward,
+      </if>
+      <if test="tipManager != null" >
+        tip_manager,
+      </if>
+      <if test="tipDriver != null" >
+        tip_driver,
+      </if>
+      <if test="exp1 != null" >
+        exp_1,
+      </if>
+      <if test="exp2 != null" >
+        exp_2,
+      </if>
+      <if test="exp3 != null" >
+        exp_3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderCode != null" >
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="driverId != null" >
+        #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="addId != null" >
+        #{addId,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resaaignType != null" >
+        #{resaaignType,jdbcType=INTEGER},
+      </if>
+      <if test="reward != null" >
+        #{reward,jdbcType=INTEGER},
+      </if>
+      <if test="tipManager != null" >
+        #{tipManager,jdbcType=VARCHAR},
+      </if>
+      <if test="tipDriver != null" >
+        #{tipDriver,jdbcType=VARCHAR},
+      </if>
+      <if test="exp1 != null" >
+        #{exp1,jdbcType=VARCHAR},
+      </if>
+      <if test="exp2 != null" >
+        #{exp2,jdbcType=VARCHAR},
+      </if>
+      <if test="exp3 != null" >
+        #{exp3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.congtuo.driverPort.model.JsjReassignRecord" >
+    update jsj_reassign_record
+    <set >
+      <if test="orderCode != null" >
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="driverId != null" >
+        driver_id = #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="addId != null" >
+        add_id = #{addId,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resaaignType != null" >
+        resaaign_type = #{resaaignType,jdbcType=INTEGER},
+      </if>
+      <if test="reward != null" >
+        reward = #{reward,jdbcType=INTEGER},
+      </if>
+      <if test="tipManager != null" >
+        tip_manager = #{tipManager,jdbcType=VARCHAR},
+      </if>
+      <if test="tipDriver != null" >
+        tip_driver = #{tipDriver,jdbcType=VARCHAR},
+      </if>
+      <if test="exp1 != null" >
+        exp_1 = #{exp1,jdbcType=VARCHAR},
+      </if>
+      <if test="exp2 != null" >
+        exp_2 = #{exp2,jdbcType=VARCHAR},
+      </if>
+      <if test="exp3 != null" >
+        exp_3 = #{exp3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.congtuo.driverPort.model.JsjReassignRecord" >
+    update jsj_reassign_record
+    set order_code = #{orderCode,jdbcType=VARCHAR},
+      driver_id = #{driverId,jdbcType=INTEGER},
+      add_id = #{addId,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      resaaign_type = #{resaaignType,jdbcType=INTEGER},
+      reward = #{reward,jdbcType=INTEGER},
+      tip_manager = #{tipManager,jdbcType=VARCHAR},
+      tip_driver = #{tipDriver,jdbcType=VARCHAR},
+      exp_1 = #{exp1,jdbcType=VARCHAR},
+      exp_2 = #{exp2,jdbcType=VARCHAR},
+      exp_3 = #{exp3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

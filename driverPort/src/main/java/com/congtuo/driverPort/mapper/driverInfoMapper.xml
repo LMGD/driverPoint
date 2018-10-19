@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.congtuo.driverPort.mapper.driverInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.congtuo.driverPort.model.driverInfo" >
+    <constructor >
+      <idArg column="driver_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="record_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="card_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="card_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="city_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fleet_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="car_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="company_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="add_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="driving_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="driving_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="valid_time_st" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="valid_time_end" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="add_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="add_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="del_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="referrals_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="check_status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="is_check_ok" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="is_del" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="driver_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="password" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bank_card_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="branch_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bank_account_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sex" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="address" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    driver_id, name, mobile, record_code, card_type, card_code, city_code, fleet_id, 
+    car_id, company_id, add_id, driving_time, driving_type, valid_time_st, valid_time_end, 
+    status, add_type, add_time, update_time, del_time, referrals_id, check_status, is_check_ok, 
+    is_del, driver_type, password, bank_card_number, branch_name, bank_account_name, 
+    sex, address
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from driver_info
+    where driver_id = #{driverId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from driver_info
+    where driver_id = #{driverId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.congtuo.driverPort.model.driverInfo" >
+    insert into driver_info (driver_id, name, mobile, 
+      record_code, card_type, card_code, 
+      city_code, fleet_id, car_id, 
+      company_id, add_id, driving_time, 
+      driving_type, valid_time_st, valid_time_end, 
+      status, add_type, add_time, 
+      update_time, del_time, referrals_id, 
+      check_status, is_check_ok, is_del, 
+      driver_type, password, bank_card_number, 
+      branch_name, bank_account_name, sex, 
+      address)
+    values (#{driverId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{recordCode,jdbcType=VARCHAR}, #{cardType,jdbcType=INTEGER}, #{cardCode,jdbcType=VARCHAR}, 
+      #{cityCode,jdbcType=VARCHAR}, #{fleetId,jdbcType=INTEGER}, #{carId,jdbcType=INTEGER}, 
+      #{companyId,jdbcType=INTEGER}, #{addId,jdbcType=INTEGER}, #{drivingTime,jdbcType=TIMESTAMP}, 
+      #{drivingType,jdbcType=VARCHAR}, #{validTimeSt,jdbcType=TIMESTAMP}, #{validTimeEnd,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{addType,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{delTime,jdbcType=TIMESTAMP}, #{referralsId,jdbcType=INTEGER}, 
+      #{checkStatus,jdbcType=INTEGER}, #{isCheckOk,jdbcType=BIT}, #{isDel,jdbcType=BIT}, 
+      #{driverType,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, #{bankCardNumber,jdbcType=VARCHAR}, 
+      #{branchName,jdbcType=VARCHAR}, #{bankAccountName,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
+      #{address,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.congtuo.driverPort.model.driverInfo" >
+    insert into driver_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="driverId != null" >
+        driver_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="recordCode != null" >
+        record_code,
+      </if>
+      <if test="cardType != null" >
+        card_type,
+      </if>
+      <if test="cardCode != null" >
+        card_code,
+      </if>
+      <if test="cityCode != null" >
+        city_code,
+      </if>
+      <if test="fleetId != null" >
+        fleet_id,
+      </if>
+      <if test="carId != null" >
+        car_id,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="addId != null" >
+        add_id,
+      </if>
+      <if test="drivingTime != null" >
+        driving_time,
+      </if>
+      <if test="drivingType != null" >
+        driving_type,
+      </if>
+      <if test="validTimeSt != null" >
+        valid_time_st,
+      </if>
+      <if test="validTimeEnd != null" >
+        valid_time_end,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="addType != null" >
+        add_type,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="delTime != null" >
+        del_time,
+      </if>
+      <if test="referralsId != null" >
+        referrals_id,
+      </if>
+      <if test="checkStatus != null" >
+        check_status,
+      </if>
+      <if test="isCheckOk != null" >
+        is_check_ok,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="driverType != null" >
+        driver_type,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="bankCardNumber != null" >
+        bank_card_number,
+      </if>
+      <if test="branchName != null" >
+        branch_name,
+      </if>
+      <if test="bankAccountName != null" >
+        bank_account_name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="driverId != null" >
+        #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="recordCode != null" >
+        #{recordCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null" >
+        #{cardType,jdbcType=INTEGER},
+      </if>
+      <if test="cardCode != null" >
+        #{cardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fleetId != null" >
+        #{fleetId,jdbcType=INTEGER},
+      </if>
+      <if test="carId != null" >
+        #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="addId != null" >
+        #{addId,jdbcType=INTEGER},
+      </if>
+      <if test="drivingTime != null" >
+        #{drivingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="drivingType != null" >
+        #{drivingType,jdbcType=VARCHAR},
+      </if>
+      <if test="validTimeSt != null" >
+        #{validTimeSt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validTimeEnd != null" >
+        #{validTimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="addType != null" >
+        #{addType,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delTime != null" >
+        #{delTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="referralsId != null" >
+        #{referralsId,jdbcType=INTEGER},
+      </if>
+      <if test="checkStatus != null" >
+        #{checkStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isCheckOk != null" >
+        #{isCheckOk,jdbcType=BIT},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="driverType != null" >
+        #{driverType,jdbcType=INTEGER},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNumber != null" >
+        #{bankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="branchName != null" >
+        #{branchName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccountName != null" >
+        #{bankAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.congtuo.driverPort.model.driverInfo" >
+    update driver_info
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="recordCode != null" >
+        record_code = #{recordCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null" >
+        card_type = #{cardType,jdbcType=INTEGER},
+      </if>
+      <if test="cardCode != null" >
+        card_code = #{cardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        city_code = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fleetId != null" >
+        fleet_id = #{fleetId,jdbcType=INTEGER},
+      </if>
+      <if test="carId != null" >
+        car_id = #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="addId != null" >
+        add_id = #{addId,jdbcType=INTEGER},
+      </if>
+      <if test="drivingTime != null" >
+        driving_time = #{drivingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="drivingType != null" >
+        driving_type = #{drivingType,jdbcType=VARCHAR},
+      </if>
+      <if test="validTimeSt != null" >
+        valid_time_st = #{validTimeSt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validTimeEnd != null" >
+        valid_time_end = #{validTimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="addType != null" >
+        add_type = #{addType,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delTime != null" >
+        del_time = #{delTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="referralsId != null" >
+        referrals_id = #{referralsId,jdbcType=INTEGER},
+      </if>
+      <if test="checkStatus != null" >
+        check_status = #{checkStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isCheckOk != null" >
+        is_check_ok = #{isCheckOk,jdbcType=BIT},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="driverType != null" >
+        driver_type = #{driverType,jdbcType=INTEGER},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNumber != null" >
+        bank_card_number = #{bankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="branchName != null" >
+        branch_name = #{branchName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccountName != null" >
+        bank_account_name = #{bankAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where driver_id = #{driverId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.congtuo.driverPort.model.driverInfo" >
+    update driver_info
+    set name = #{name,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      record_code = #{recordCode,jdbcType=VARCHAR},
+      card_type = #{cardType,jdbcType=INTEGER},
+      card_code = #{cardCode,jdbcType=VARCHAR},
+      city_code = #{cityCode,jdbcType=VARCHAR},
+      fleet_id = #{fleetId,jdbcType=INTEGER},
+      car_id = #{carId,jdbcType=INTEGER},
+      company_id = #{companyId,jdbcType=INTEGER},
+      add_id = #{addId,jdbcType=INTEGER},
+      driving_time = #{drivingTime,jdbcType=TIMESTAMP},
+      driving_type = #{drivingType,jdbcType=VARCHAR},
+      valid_time_st = #{validTimeSt,jdbcType=TIMESTAMP},
+      valid_time_end = #{validTimeEnd,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      add_type = #{addType,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del_time = #{delTime,jdbcType=TIMESTAMP},
+      referrals_id = #{referralsId,jdbcType=INTEGER},
+      check_status = #{checkStatus,jdbcType=INTEGER},
+      is_check_ok = #{isCheckOk,jdbcType=BIT},
+      is_del = #{isDel,jdbcType=BIT},
+      driver_type = #{driverType,jdbcType=INTEGER},
+      password = #{password,jdbcType=VARCHAR},
+      bank_card_number = #{bankCardNumber,jdbcType=VARCHAR},
+      branch_name = #{branchName,jdbcType=VARCHAR},
+      bank_account_name = #{bankAccountName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      address = #{address,jdbcType=VARCHAR}
+    where driver_id = #{driverId,jdbcType=INTEGER}
+  </update>
+</mapper>

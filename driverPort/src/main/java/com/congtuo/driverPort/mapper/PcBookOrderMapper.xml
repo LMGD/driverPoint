@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.congtuo.driverPort.mapper.PcBookOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.congtuo.driverPort.model.PcBookOrder" >
+    <constructor >
+      <idArg column="order_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="order_uuid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pc_order_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="use_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="price" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="depart" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="depart_detail" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="termini" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="termini_detail" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="driver_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="rob_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="cancle_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="cancle_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="cancel_reason" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="cancle_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="add_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="add_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="add_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="del_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="take_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="at_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="begin_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="end_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="time_status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="city_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="is_del" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="st_jw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="end_jw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="rob_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="forecast" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="distance" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="change_status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="is_archive" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="original_price" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="lug_num" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="vote_num" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="route_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="route_st" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="route_end" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="is_bale" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="vip" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="introducer" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="introducer_type" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="introducer_is_val" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="route_uuid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="source_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="refund_note" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="refund_price" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="third_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="refund_fail_reason" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pay_type" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="coupon_user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="coupon_amount" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="refund_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="order_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.congtuo.driverPort.model.PcBookOrderWithBLOBs" >
+    <constructor >
+      <idArg column="order_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="order_uuid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pc_order_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="use_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="price" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="depart" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="depart_detail" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="termini" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="termini_detail" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="driver_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="rob_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="cancle_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="cancle_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="cancel_reason" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="cancle_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="add_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="add_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="add_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="del_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="take_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="at_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="begin_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="end_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="time_status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="city_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="is_del" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="st_jw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="end_jw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="rob_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="forecast" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="distance" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="change_status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="is_archive" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="original_price" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="lug_num" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="vote_num" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="route_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="route_st" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="route_end" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="is_bale" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="vip" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="introducer" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="introducer_type" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="introducer_is_val" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="route_uuid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="source_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="refund_note" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="refund_price" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="third_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="refund_fail_reason" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pay_type" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="coupon_user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="coupon_amount" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="refund_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="order_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="tip_manager" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+      <arg column="tip_driver" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+      <arg column="tip_passenger" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    order_code, order_uuid, pc_order_code, name, mobile, use_time, price, depart, depart_detail, 
+    termini, termini_detail, driver_id, status, rob_time, cancle_id, cancle_type, cancel_reason, 
+    cancle_time, add_type, add_id, add_time, update_time, del_time, take_time, at_time, 
+    begin_time, end_time, time_status, city_code, is_del, st_jw, end_jw, rob_type, forecast, 
+    distance, change_status, is_archive, original_price, lug_num, vote_num, route_name, 
+    route_st, route_end, is_bale, vip, introducer, introducer_type, introducer_is_val, 
+    route_uuid, source_id, refund_note, refund_price, third_code, refund_fail_reason, 
+    pay_type, coupon_user_id, coupon_amount, refund_time, order_type
+  </sql>
+  <sql id="Blob_Column_List" >
+    tip_manager, tip_driver, tip_passenger
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="com.congtuo.driverPort.model.PcBookOrderKey" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from pc_book_order
+    where order_code = #{orderCode,jdbcType=VARCHAR}
+      and order_uuid = #{orderUuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.congtuo.driverPort.model.PcBookOrderKey" >
+    delete from pc_book_order
+    where order_code = #{orderCode,jdbcType=VARCHAR}
+      and order_uuid = #{orderUuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.congtuo.driverPort.model.PcBookOrderWithBLOBs" >
+    insert into pc_book_order (order_code, order_uuid, pc_order_code, 
+      name, mobile, use_time, 
+      price, depart, depart_detail, 
+      termini, termini_detail, driver_id, 
+      status, rob_time, cancle_id, 
+      cancle_type, cancel_reason, cancle_time, 
+      add_type, add_id, add_time, 
+      update_time, del_time, take_time, 
+      at_time, begin_time, end_time, 
+      time_status, city_code, is_del, 
+      st_jw, end_jw, rob_type, 
+      forecast, distance, change_status, 
+      is_archive, original_price, lug_num, 
+      vote_num, route_name, route_st, 
+      route_end, is_bale, vip, 
+      introducer, introducer_type, introducer_is_val, 
+      route_uuid, source_id, refund_note, 
+      refund_price, third_code, refund_fail_reason, 
+      pay_type, coupon_user_id, coupon_amount, 
+      refund_time, order_type, tip_manager, 
+      tip_driver, tip_passenger)
+    values (#{orderCode,jdbcType=VARCHAR}, #{orderUuid,jdbcType=VARCHAR}, #{pcOrderCode,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{useTime,jdbcType=TIMESTAMP}, 
+      #{price,jdbcType=REAL}, #{depart,jdbcType=VARCHAR}, #{departDetail,jdbcType=VARCHAR}, 
+      #{termini,jdbcType=VARCHAR}, #{terminiDetail,jdbcType=VARCHAR}, #{driverId,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{robTime,jdbcType=TIMESTAMP}, #{cancleId,jdbcType=INTEGER}, 
+      #{cancleType,jdbcType=INTEGER}, #{cancelReason,jdbcType=VARCHAR}, #{cancleTime,jdbcType=TIMESTAMP}, 
+      #{addType,jdbcType=INTEGER}, #{addId,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{delTime,jdbcType=TIMESTAMP}, #{takeTime,jdbcType=TIMESTAMP}, 
+      #{atTime,jdbcType=TIMESTAMP}, #{beginTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{timeStatus,jdbcType=INTEGER}, #{cityCode,jdbcType=VARCHAR}, #{isDel,jdbcType=BIT}, 
+      #{stJw,jdbcType=VARCHAR}, #{endJw,jdbcType=VARCHAR}, #{robType,jdbcType=INTEGER}, 
+      #{forecast,jdbcType=INTEGER}, #{distance,jdbcType=INTEGER}, #{changeStatus,jdbcType=INTEGER}, 
+      #{isArchive,jdbcType=BIT}, #{originalPrice,jdbcType=REAL}, #{lugNum,jdbcType=INTEGER}, 
+      #{voteNum,jdbcType=INTEGER}, #{routeName,jdbcType=VARCHAR}, #{routeSt,jdbcType=VARCHAR}, 
+      #{routeEnd,jdbcType=VARCHAR}, #{isBale,jdbcType=BIT}, #{vip,jdbcType=VARCHAR}, 
+      #{introducer,jdbcType=INTEGER}, #{introducerType,jdbcType=TINYINT}, #{introducerIsVal,jdbcType=TINYINT}, 
+      #{routeUuid,jdbcType=VARCHAR}, #{sourceId,jdbcType=INTEGER}, #{refundNote,jdbcType=VARCHAR}, 
+      #{refundPrice,jdbcType=VARCHAR}, #{thirdCode,jdbcType=VARCHAR}, #{refundFailReason,jdbcType=VARCHAR}, 
+      #{payType,jdbcType=TINYINT}, #{couponUserId,jdbcType=INTEGER}, #{couponAmount,jdbcType=DECIMAL}, 
+      #{refundTime,jdbcType=TIMESTAMP}, #{orderType,jdbcType=INTEGER}, #{tipManager,jdbcType=LONGVARCHAR}, 
+      #{tipDriver,jdbcType=LONGVARCHAR}, #{tipPassenger,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.congtuo.driverPort.model.PcBookOrderWithBLOBs" >
+    insert into pc_book_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderCode != null" >
+        order_code,
+      </if>
+      <if test="orderUuid != null" >
+        order_uuid,
+      </if>
+      <if test="pcOrderCode != null" >
+        pc_order_code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="useTime != null" >
+        use_time,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="depart != null" >
+        depart,
+      </if>
+      <if test="departDetail != null" >
+        depart_detail,
+      </if>
+      <if test="termini != null" >
+        termini,
+      </if>
+      <if test="terminiDetail != null" >
+        termini_detail,
+      </if>
+      <if test="driverId != null" >
+        driver_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="robTime != null" >
+        rob_time,
+      </if>
+      <if test="cancleId != null" >
+        cancle_id,
+      </if>
+      <if test="cancleType != null" >
+        cancle_type,
+      </if>
+      <if test="cancelReason != null" >
+        cancel_reason,
+      </if>
+      <if test="cancleTime != null" >
+        cancle_time,
+      </if>
+      <if test="addType != null" >
+        add_type,
+      </if>
+      <if test="addId != null" >
+        add_id,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="delTime != null" >
+        del_time,
+      </if>
+      <if test="takeTime != null" >
+        take_time,
+      </if>
+      <if test="atTime != null" >
+        at_time,
+      </if>
+      <if test="beginTime != null" >
+        begin_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="timeStatus != null" >
+        time_status,
+      </if>
+      <if test="cityCode != null" >
+        city_code,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="stJw != null" >
+        st_jw,
+      </if>
+      <if test="endJw != null" >
+        end_jw,
+      </if>
+      <if test="robType != null" >
+        rob_type,
+      </if>
+      <if test="forecast != null" >
+        forecast,
+      </if>
+      <if test="distance != null" >
+        distance,
+      </if>
+      <if test="changeStatus != null" >
+        change_status,
+      </if>
+      <if test="isArchive != null" >
+        is_archive,
+      </if>
+      <if test="originalPrice != null" >
+        original_price,
+      </if>
+      <if test="lugNum != null" >
+        lug_num,
+      </if>
+      <if test="voteNum != null" >
+        vote_num,
+      </if>
+      <if test="routeName != null" >
+        route_name,
+      </if>
+      <if test="routeSt != null" >
+        route_st,
+      </if>
+      <if test="routeEnd != null" >
+        route_end,
+      </if>
+      <if test="isBale != null" >
+        is_bale,
+      </if>
+      <if test="vip != null" >
+        vip,
+      </if>
+      <if test="introducer != null" >
+        introducer,
+      </if>
+      <if test="introducerType != null" >
+        introducer_type,
+      </if>
+      <if test="introducerIsVal != null" >
+        introducer_is_val,
+      </if>
+      <if test="routeUuid != null" >
+        route_uuid,
+      </if>
+      <if test="sourceId != null" >
+        source_id,
+      </if>
+      <if test="refundNote != null" >
+        refund_note,
+      </if>
+      <if test="refundPrice != null" >
+        refund_price,
+      </if>
+      <if test="thirdCode != null" >
+        third_code,
+      </if>
+      <if test="refundFailReason != null" >
+        refund_fail_reason,
+      </if>
+      <if test="payType != null" >
+        pay_type,
+      </if>
+      <if test="couponUserId != null" >
+        coupon_user_id,
+      </if>
+      <if test="couponAmount != null" >
+        coupon_amount,
+      </if>
+      <if test="refundTime != null" >
+        refund_time,
+      </if>
+      <if test="orderType != null" >
+        order_type,
+      </if>
+      <if test="tipManager != null" >
+        tip_manager,
+      </if>
+      <if test="tipDriver != null" >
+        tip_driver,
+      </if>
+      <if test="tipPassenger != null" >
+        tip_passenger,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderCode != null" >
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderUuid != null" >
+        #{orderUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="pcOrderCode != null" >
+        #{pcOrderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="useTime != null" >
+        #{useTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="depart != null" >
+        #{depart,jdbcType=VARCHAR},
+      </if>
+      <if test="departDetail != null" >
+        #{departDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="termini != null" >
+        #{termini,jdbcType=VARCHAR},
+      </if>
+      <if test="terminiDetail != null" >
+        #{terminiDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="driverId != null" >
+        #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="robTime != null" >
+        #{robTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancleId != null" >
+        #{cancleId,jdbcType=INTEGER},
+      </if>
+      <if test="cancleType != null" >
+        #{cancleType,jdbcType=INTEGER},
+      </if>
+      <if test="cancelReason != null" >
+        #{cancelReason,jdbcType=VARCHAR},
+      </if>
+      <if test="cancleTime != null" >
+        #{cancleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addType != null" >
+        #{addType,jdbcType=INTEGER},
+      </if>
+      <if test="addId != null" >
+        #{addId,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delTime != null" >
+        #{delTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="takeTime != null" >
+        #{takeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="atTime != null" >
+        #{atTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="beginTime != null" >
+        #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeStatus != null" >
+        #{timeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="stJw != null" >
+        #{stJw,jdbcType=VARCHAR},
+      </if>
+      <if test="endJw != null" >
+        #{endJw,jdbcType=VARCHAR},
+      </if>
+      <if test="robType != null" >
+        #{robType,jdbcType=INTEGER},
+      </if>
+      <if test="forecast != null" >
+        #{forecast,jdbcType=INTEGER},
+      </if>
+      <if test="distance != null" >
+        #{distance,jdbcType=INTEGER},
+      </if>
+      <if test="changeStatus != null" >
+        #{changeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isArchive != null" >
+        #{isArchive,jdbcType=BIT},
+      </if>
+      <if test="originalPrice != null" >
+        #{originalPrice,jdbcType=REAL},
+      </if>
+      <if test="lugNum != null" >
+        #{lugNum,jdbcType=INTEGER},
+      </if>
+      <if test="voteNum != null" >
+        #{voteNum,jdbcType=INTEGER},
+      </if>
+      <if test="routeName != null" >
+        #{routeName,jdbcType=VARCHAR},
+      </if>
+      <if test="routeSt != null" >
+        #{routeSt,jdbcType=VARCHAR},
+      </if>
+      <if test="routeEnd != null" >
+        #{routeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="isBale != null" >
+        #{isBale,jdbcType=BIT},
+      </if>
+      <if test="vip != null" >
+        #{vip,jdbcType=VARCHAR},
+      </if>
+      <if test="introducer != null" >
+        #{introducer,jdbcType=INTEGER},
+      </if>
+      <if test="introducerType != null" >
+        #{introducerType,jdbcType=TINYINT},
+      </if>
+      <if test="introducerIsVal != null" >
+        #{introducerIsVal,jdbcType=TINYINT},
+      </if>
+      <if test="routeUuid != null" >
+        #{routeUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceId != null" >
+        #{sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="refundNote != null" >
+        #{refundNote,jdbcType=VARCHAR},
+      </if>
+      <if test="refundPrice != null" >
+        #{refundPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdCode != null" >
+        #{thirdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="refundFailReason != null" >
+        #{refundFailReason,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=TINYINT},
+      </if>
+      <if test="couponUserId != null" >
+        #{couponUserId,jdbcType=INTEGER},
+      </if>
+      <if test="couponAmount != null" >
+        #{couponAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundTime != null" >
+        #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderType != null" >
+        #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="tipManager != null" >
+        #{tipManager,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="tipDriver != null" >
+        #{tipDriver,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="tipPassenger != null" >
+        #{tipPassenger,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.congtuo.driverPort.model.PcBookOrderWithBLOBs" >
+    update pc_book_order
+    <set >
+      <if test="pcOrderCode != null" >
+        pc_order_code = #{pcOrderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="useTime != null" >
+        use_time = #{useTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="depart != null" >
+        depart = #{depart,jdbcType=VARCHAR},
+      </if>
+      <if test="departDetail != null" >
+        depart_detail = #{departDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="termini != null" >
+        termini = #{termini,jdbcType=VARCHAR},
+      </if>
+      <if test="terminiDetail != null" >
+        termini_detail = #{terminiDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="driverId != null" >
+        driver_id = #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="robTime != null" >
+        rob_time = #{robTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancleId != null" >
+        cancle_id = #{cancleId,jdbcType=INTEGER},
+      </if>
+      <if test="cancleType != null" >
+        cancle_type = #{cancleType,jdbcType=INTEGER},
+      </if>
+      <if test="cancelReason != null" >
+        cancel_reason = #{cancelReason,jdbcType=VARCHAR},
+      </if>
+      <if test="cancleTime != null" >
+        cancle_time = #{cancleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addType != null" >
+        add_type = #{addType,jdbcType=INTEGER},
+      </if>
+      <if test="addId != null" >
+        add_id = #{addId,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delTime != null" >
+        del_time = #{delTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="takeTime != null" >
+        take_time = #{takeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="atTime != null" >
+        at_time = #{atTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="beginTime != null" >
+        begin_time = #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeStatus != null" >
+        time_status = #{timeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="cityCode != null" >
+        city_code = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="stJw != null" >
+        st_jw = #{stJw,jdbcType=VARCHAR},
+      </if>
+      <if test="endJw != null" >
+        end_jw = #{endJw,jdbcType=VARCHAR},
+      </if>
+      <if test="robType != null" >
+        rob_type = #{robType,jdbcType=INTEGER},
+      </if>
+      <if test="forecast != null" >
+        forecast = #{forecast,jdbcType=INTEGER},
+      </if>
+      <if test="distance != null" >
+        distance = #{distance,jdbcType=INTEGER},
+      </if>
+      <if test="changeStatus != null" >
+        change_status = #{changeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isArchive != null" >
+        is_archive = #{isArchive,jdbcType=BIT},
+      </if>
+      <if test="originalPrice != null" >
+        original_price = #{originalPrice,jdbcType=REAL},
+      </if>
+      <if test="lugNum != null" >
+        lug_num = #{lugNum,jdbcType=INTEGER},
+      </if>
+      <if test="voteNum != null" >
+        vote_num = #{voteNum,jdbcType=INTEGER},
+      </if>
+      <if test="routeName != null" >
+        route_name = #{routeName,jdbcType=VARCHAR},
+      </if>
+      <if test="routeSt != null" >
+        route_st = #{routeSt,jdbcType=VARCHAR},
+      </if>
+      <if test="routeEnd != null" >
+        route_end = #{routeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="isBale != null" >
+        is_bale = #{isBale,jdbcType=BIT},
+      </if>
+      <if test="vip != null" >
+        vip = #{vip,jdbcType=VARCHAR},
+      </if>
+      <if test="introducer != null" >
+        introducer = #{introducer,jdbcType=INTEGER},
+      </if>
+      <if test="introducerType != null" >
+        introducer_type = #{introducerType,jdbcType=TINYINT},
+      </if>
+      <if test="introducerIsVal != null" >
+        introducer_is_val = #{introducerIsVal,jdbcType=TINYINT},
+      </if>
+      <if test="routeUuid != null" >
+        route_uuid = #{routeUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceId != null" >
+        source_id = #{sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="refundNote != null" >
+        refund_note = #{refundNote,jdbcType=VARCHAR},
+      </if>
+      <if test="refundPrice != null" >
+        refund_price = #{refundPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdCode != null" >
+        third_code = #{thirdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="refundFailReason != null" >
+        refund_fail_reason = #{refundFailReason,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        pay_type = #{payType,jdbcType=TINYINT},
+      </if>
+      <if test="couponUserId != null" >
+        coupon_user_id = #{couponUserId,jdbcType=INTEGER},
+      </if>
+      <if test="couponAmount != null" >
+        coupon_amount = #{couponAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundTime != null" >
+        refund_time = #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderType != null" >
+        order_type = #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="tipManager != null" >
+        tip_manager = #{tipManager,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="tipDriver != null" >
+        tip_driver = #{tipDriver,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="tipPassenger != null" >
+        tip_passenger = #{tipPassenger,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where order_code = #{orderCode,jdbcType=VARCHAR}
+      and order_uuid = #{orderUuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.congtuo.driverPort.model.PcBookOrderWithBLOBs" >
+    update pc_book_order
+    set pc_order_code = #{pcOrderCode,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      use_time = #{useTime,jdbcType=TIMESTAMP},
+      price = #{price,jdbcType=REAL},
+      depart = #{depart,jdbcType=VARCHAR},
+      depart_detail = #{departDetail,jdbcType=VARCHAR},
+      termini = #{termini,jdbcType=VARCHAR},
+      termini_detail = #{terminiDetail,jdbcType=VARCHAR},
+      driver_id = #{driverId,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      rob_time = #{robTime,jdbcType=TIMESTAMP},
+      cancle_id = #{cancleId,jdbcType=INTEGER},
+      cancle_type = #{cancleType,jdbcType=INTEGER},
+      cancel_reason = #{cancelReason,jdbcType=VARCHAR},
+      cancle_time = #{cancleTime,jdbcType=TIMESTAMP},
+      add_type = #{addType,jdbcType=INTEGER},
+      add_id = #{addId,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del_time = #{delTime,jdbcType=TIMESTAMP},
+      take_time = #{takeTime,jdbcType=TIMESTAMP},
+      at_time = #{atTime,jdbcType=TIMESTAMP},
+      begin_time = #{beginTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      time_status = #{timeStatus,jdbcType=INTEGER},
+      city_code = #{cityCode,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=BIT},
+      st_jw = #{stJw,jdbcType=VARCHAR},
+      end_jw = #{endJw,jdbcType=VARCHAR},
+      rob_type = #{robType,jdbcType=INTEGER},
+      forecast = #{forecast,jdbcType=INTEGER},
+      distance = #{distance,jdbcType=INTEGER},
+      change_status = #{changeStatus,jdbcType=INTEGER},
+      is_archive = #{isArchive,jdbcType=BIT},
+      original_price = #{originalPrice,jdbcType=REAL},
+      lug_num = #{lugNum,jdbcType=INTEGER},
+      vote_num = #{voteNum,jdbcType=INTEGER},
+      route_name = #{routeName,jdbcType=VARCHAR},
+      route_st = #{routeSt,jdbcType=VARCHAR},
+      route_end = #{routeEnd,jdbcType=VARCHAR},
+      is_bale = #{isBale,jdbcType=BIT},
+      vip = #{vip,jdbcType=VARCHAR},
+      introducer = #{introducer,jdbcType=INTEGER},
+      introducer_type = #{introducerType,jdbcType=TINYINT},
+      introducer_is_val = #{introducerIsVal,jdbcType=TINYINT},
+      route_uuid = #{routeUuid,jdbcType=VARCHAR},
+      source_id = #{sourceId,jdbcType=INTEGER},
+      refund_note = #{refundNote,jdbcType=VARCHAR},
+      refund_price = #{refundPrice,jdbcType=VARCHAR},
+      third_code = #{thirdCode,jdbcType=VARCHAR},
+      refund_fail_reason = #{refundFailReason,jdbcType=VARCHAR},
+      pay_type = #{payType,jdbcType=TINYINT},
+      coupon_user_id = #{couponUserId,jdbcType=INTEGER},
+      coupon_amount = #{couponAmount,jdbcType=DECIMAL},
+      refund_time = #{refundTime,jdbcType=TIMESTAMP},
+      order_type = #{orderType,jdbcType=INTEGER},
+      tip_manager = #{tipManager,jdbcType=LONGVARCHAR},
+      tip_driver = #{tipDriver,jdbcType=LONGVARCHAR},
+      tip_passenger = #{tipPassenger,jdbcType=LONGVARCHAR}
+    where order_code = #{orderCode,jdbcType=VARCHAR}
+      and order_uuid = #{orderUuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.congtuo.driverPort.model.PcBookOrder" >
+    update pc_book_order
+    set pc_order_code = #{pcOrderCode,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      use_time = #{useTime,jdbcType=TIMESTAMP},
+      price = #{price,jdbcType=REAL},
+      depart = #{depart,jdbcType=VARCHAR},
+      depart_detail = #{departDetail,jdbcType=VARCHAR},
+      termini = #{termini,jdbcType=VARCHAR},
+      termini_detail = #{terminiDetail,jdbcType=VARCHAR},
+      driver_id = #{driverId,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      rob_time = #{robTime,jdbcType=TIMESTAMP},
+      cancle_id = #{cancleId,jdbcType=INTEGER},
+      cancle_type = #{cancleType,jdbcType=INTEGER},
+      cancel_reason = #{cancelReason,jdbcType=VARCHAR},
+      cancle_time = #{cancleTime,jdbcType=TIMESTAMP},
+      add_type = #{addType,jdbcType=INTEGER},
+      add_id = #{addId,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del_time = #{delTime,jdbcType=TIMESTAMP},
+      take_time = #{takeTime,jdbcType=TIMESTAMP},
+      at_time = #{atTime,jdbcType=TIMESTAMP},
+      begin_time = #{beginTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      time_status = #{timeStatus,jdbcType=INTEGER},
+      city_code = #{cityCode,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=BIT},
+      st_jw = #{stJw,jdbcType=VARCHAR},
+      end_jw = #{endJw,jdbcType=VARCHAR},
+      rob_type = #{robType,jdbcType=INTEGER},
+      forecast = #{forecast,jdbcType=INTEGER},
+      distance = #{distance,jdbcType=INTEGER},
+      change_status = #{changeStatus,jdbcType=INTEGER},
+      is_archive = #{isArchive,jdbcType=BIT},
+      original_price = #{originalPrice,jdbcType=REAL},
+      lug_num = #{lugNum,jdbcType=INTEGER},
+      vote_num = #{voteNum,jdbcType=INTEGER},
+      route_name = #{routeName,jdbcType=VARCHAR},
+      route_st = #{routeSt,jdbcType=VARCHAR},
+      route_end = #{routeEnd,jdbcType=VARCHAR},
+      is_bale = #{isBale,jdbcType=BIT},
+      vip = #{vip,jdbcType=VARCHAR},
+      introducer = #{introducer,jdbcType=INTEGER},
+      introducer_type = #{introducerType,jdbcType=TINYINT},
+      introducer_is_val = #{introducerIsVal,jdbcType=TINYINT},
+      route_uuid = #{routeUuid,jdbcType=VARCHAR},
+      source_id = #{sourceId,jdbcType=INTEGER},
+      refund_note = #{refundNote,jdbcType=VARCHAR},
+      refund_price = #{refundPrice,jdbcType=VARCHAR},
+      third_code = #{thirdCode,jdbcType=VARCHAR},
+      refund_fail_reason = #{refundFailReason,jdbcType=VARCHAR},
+      pay_type = #{payType,jdbcType=TINYINT},
+      coupon_user_id = #{couponUserId,jdbcType=INTEGER},
+      coupon_amount = #{couponAmount,jdbcType=DECIMAL},
+      refund_time = #{refundTime,jdbcType=TIMESTAMP},
+      order_type = #{orderType,jdbcType=INTEGER}
+    where order_code = #{orderCode,jdbcType=VARCHAR}
+      and order_uuid = #{orderUuid,jdbcType=VARCHAR}
+  </update>
+</mapper>

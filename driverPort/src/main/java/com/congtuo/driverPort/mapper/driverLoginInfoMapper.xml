@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.congtuo.driverPort.mapper.driverLoginInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.congtuo.driverPort.model.driverLoginInfo" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="did" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="expire_ts" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="add_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="login_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="version" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="rid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sdk" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="model" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="imel" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, did, expire_ts, add_time, login_time, version, rid, sdk, model, imel
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from driver_login_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from driver_login_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.congtuo.driverPort.model.driverLoginInfo" >
+    insert into driver_login_info (id, did, expire_ts, 
+      add_time, login_time, version, 
+      rid, sdk, model, imel
+      )
+    values (#{id,jdbcType=INTEGER}, #{did,jdbcType=INTEGER}, #{expireTs,jdbcType=INTEGER}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{loginTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}, 
+      #{rid,jdbcType=VARCHAR}, #{sdk,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{imel,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.congtuo.driverPort.model.driverLoginInfo" >
+    insert into driver_login_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="did != null" >
+        did,
+      </if>
+      <if test="expireTs != null" >
+        expire_ts,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="loginTime != null" >
+        login_time,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="rid != null" >
+        rid,
+      </if>
+      <if test="sdk != null" >
+        sdk,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="imel != null" >
+        imel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="did != null" >
+        #{did,jdbcType=INTEGER},
+      </if>
+      <if test="expireTs != null" >
+        #{expireTs,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="rid != null" >
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="sdk != null" >
+        #{sdk,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="imel != null" >
+        #{imel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.congtuo.driverPort.model.driverLoginInfo" >
+    update driver_login_info
+    <set >
+      <if test="did != null" >
+        did = #{did,jdbcType=INTEGER},
+      </if>
+      <if test="expireTs != null" >
+        expire_ts = #{expireTs,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginTime != null" >
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="rid != null" >
+        rid = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="sdk != null" >
+        sdk = #{sdk,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="imel != null" >
+        imel = #{imel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.congtuo.driverPort.model.driverLoginInfo" >
+    update driver_login_info
+    set did = #{did,jdbcType=INTEGER},
+      expire_ts = #{expireTs,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER},
+      rid = #{rid,jdbcType=VARCHAR},
+      sdk = #{sdk,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      imel = #{imel,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
